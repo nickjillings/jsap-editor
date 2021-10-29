@@ -1,0 +1,23 @@
+{
+  "name": "jsap-editor",
+  "version": "2.0.0",
+  "description": "Editor Module for JSAP plugin GUI building",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicholas Jillings",
+  "license": "ISC",
+  "devDependencies": {
+    "source-map-loader": "^3.0.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "js-xtract": "^1.2.0",
+    "jsap": "file:../JSAP",
+    "rxjs": "^7.4.0"
+  }
+}
