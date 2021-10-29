@@ -2,7 +2,7 @@
   "name": "jsap-editor",
   "version": "2.0.0",
   "description": "Editor Module for JSAP plugin GUI building",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
