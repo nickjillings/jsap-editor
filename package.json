@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nicholas Jillings",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "source-map-loader": "^3.0.0",
     "ts-loader": "^9.2.6",
