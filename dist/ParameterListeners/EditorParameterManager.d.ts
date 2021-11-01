@@ -1,10 +1,10 @@
-import NumberParameterListener from "./NumberParameterListener";
-import StringParameterListener from "./StringParameterListener";
-import SwitchParameterListener from "./SwitchParameterListener";
-import BasePluginEditorChannel from "../BasePluginEditorChannel";
+import { NumberParameterListener } from "./NumberParameterListener";
+import { StringParameterListener } from "./StringParameterListener";
+import { SwitchParameterListener } from "./SwitchParameterListener";
+import { BasePluginEditorChannel } from "../BasePluginEditorChannel";
 import { IEditorParameterManager } from "./IEditorParameterManager";
 import { IParameterListener } from "./IParameterListener";
-declare class EditorParameterManager implements IEditorParameterManager {
+export declare class EditorParameterManager implements IEditorParameterManager {
     readonly channel: BasePluginEditorChannel;
     parameters: IParameterListener<any>[];
     constructor(channel: BasePluginEditorChannel);
@@ -13,4 +13,3 @@ declare class EditorParameterManager implements IEditorParameterManager {
     createStringParameterListener(parameterName: string, visibleName: string, defaultValue: string, maximumLength?: number): StringParameterListener;
     createSwitchParameterListener(parameterName: string, visibleName: string, defaultValue: number, maxState: number, minState: number): SwitchParameterListener;
 }
-export default EditorParameterManager;

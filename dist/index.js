@@ -20,9 +20,10 @@ return /******/ (() => { // webpackBootstrap
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ BasePluginEditorChannel)
+/* harmony export */   "BasePluginEditorChannel": () => (/* binding */ BasePluginEditorChannel)
 /* harmony export */ });
 /* harmony import */ var _ParameterListeners_EditorParameterManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ParameterListeners/EditorParameterManager */ "./src/ParameterListeners/EditorParameterManager.ts");
+/* harmony import */ var _IBasePluginEditorChannel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IBasePluginEditorChannel */ "./src/IBasePluginEditorChannel.ts");
 // jshint esversion: 6
 /*
     JSAP Plugin GUI Channel object
@@ -30,6 +31,7 @@ __webpack_require__.r(__webpack_exports__);
     This object helps to abstract the various communication platforms in JSAP
     between the plugin processor (BasePlugin) and the GUI on top.
 */
+
 
 class BasePluginEditorChannel {
     constructor() {
@@ -44,7 +46,7 @@ class BasePluginEditorChannel {
         this.onparameterListeners = [];
         this.onlisteners = [];
         this.statelisteners = [];
-        this.parameterListenerManager = new _ParameterListeners_EditorParameterManager__WEBPACK_IMPORTED_MODULE_0__["default"](this);
+        this.parameterListenerManager = new _ParameterListeners_EditorParameterManager__WEBPACK_IMPORTED_MODULE_0__.EditorParameterManager(this);
         if (window.opener) {
             // We are a popout window
             this.hostWindow = window.opener;
@@ -208,6 +210,18 @@ class BasePluginEditorChannel {
 
 /***/ }),
 
+/***/ "./src/IBasePluginEditorChannel.ts":
+/*!*****************************************!*\
+  !*** ./src/IBasePluginEditorChannel.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+
+
+
+/***/ }),
+
 /***/ "./src/ParameterListeners/EditorParameterManager.ts":
 /*!**********************************************************!*\
   !*** ./src/ParameterListeners/EditorParameterManager.ts ***!
@@ -216,7 +230,7 @@ class BasePluginEditorChannel {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "EditorParameterManager": () => (/* binding */ EditorParameterManager)
 /* harmony export */ });
 /* harmony import */ var _NumberParameterListener__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NumberParameterListener */ "./src/ParameterListeners/NumberParameterListener.ts");
 /* harmony import */ var _ListParameterListener__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListParameterListener */ "./src/ParameterListeners/ListParameterListener.ts");
@@ -233,27 +247,26 @@ class EditorParameterManager {
         this.parameters = [];
     }
     createNumberParameterListener(parameterName, visibleName, defaultValue, maximum, minimum) {
-        const node = new _NumberParameterListener__WEBPACK_IMPORTED_MODULE_0__["default"](this, this.channel, parameterName, visibleName, defaultValue, maximum, minimum);
+        const node = new _NumberParameterListener__WEBPACK_IMPORTED_MODULE_0__.NumberParameterListener(this, this.channel, parameterName, visibleName, defaultValue, maximum, minimum);
         this.parameters.push(node);
         return node;
     }
     createListParameterListener(parameterName, visibleName, defaultValue, listValues) {
-        const node = new _ListParameterListener__WEBPACK_IMPORTED_MODULE_1__["default"](this, this.channel, parameterName, visibleName, defaultValue, listValues);
+        const node = new _ListParameterListener__WEBPACK_IMPORTED_MODULE_1__.ListParameterListener(this, this.channel, parameterName, visibleName, defaultValue, listValues);
         this.parameters.push(node);
         return node;
     }
     createStringParameterListener(parameterName, visibleName, defaultValue, maximumLength) {
-        const node = new _StringParameterListener__WEBPACK_IMPORTED_MODULE_2__["default"](this, this.channel, parameterName, visibleName, defaultValue, maximumLength);
+        const node = new _StringParameterListener__WEBPACK_IMPORTED_MODULE_2__.StringParameterListener(this, this.channel, parameterName, visibleName, defaultValue, maximumLength);
         this.parameters.push(node);
         return node;
     }
     createSwitchParameterListener(parameterName, visibleName, defaultValue, maxState, minState) {
-        var node = new _SwitchParameterListener__WEBPACK_IMPORTED_MODULE_3__["default"](this, this.channel, parameterName, visibleName, defaultValue, maxState, minState);
+        var node = new _SwitchParameterListener__WEBPACK_IMPORTED_MODULE_3__.SwitchParameterListener(this, this.channel, parameterName, visibleName, defaultValue, maxState, minState);
         this.parameters.push(node);
         return node;
     }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditorParameterManager);
 
 
 /***/ }),
@@ -290,7 +303,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "ListParameterListener": () => (/* binding */ ListParameterListener)
 /* harmony export */ });
 /*jshint esversion: 6 */
 class ListParameterListener {
@@ -318,7 +331,6 @@ class ListParameterListener {
         }
     }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListParameterListener);
 
 
 /***/ }),
@@ -331,7 +343,7 @@ class ListParameterListener {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "NumberParameterListener": () => (/* binding */ NumberParameterListener)
 /* harmony export */ });
 /*jshint esversion: 6 */
 class NumberParameterListener {
@@ -360,7 +372,6 @@ class NumberParameterListener {
         }
     }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NumberParameterListener);
 
 
 /***/ }),
@@ -373,7 +384,7 @@ class NumberParameterListener {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "StringParameterListener": () => (/* binding */ StringParameterListener)
 /* harmony export */ });
 /*jshint esversion: 6 */
 class StringParameterListener {
@@ -399,7 +410,6 @@ class StringParameterListener {
         }
     }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StringParameterListener);
 
 
 /***/ }),
@@ -412,7 +422,7 @@ class StringParameterListener {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "SwitchParameterListener": () => (/* binding */ SwitchParameterListener)
 /* harmony export */ });
 /*jshint esversion: 6 */
 class SwitchParameterListener {
@@ -455,7 +465,6 @@ class SwitchParameterListener {
         }
     }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SwitchParameterListener);
 
 
 /***/ }),
@@ -467,6 +476,13 @@ class SwitchParameterListener {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EditorParameterManager": () => (/* reexport safe */ _EditorParameterManager__WEBPACK_IMPORTED_MODULE_0__.EditorParameterManager),
+/* harmony export */   "ListParameterListener": () => (/* reexport safe */ _ListParameterListener__WEBPACK_IMPORTED_MODULE_3__.ListParameterListener),
+/* harmony export */   "NumberParameterListener": () => (/* reexport safe */ _NumberParameterListener__WEBPACK_IMPORTED_MODULE_4__.NumberParameterListener),
+/* harmony export */   "StringParameterListener": () => (/* reexport safe */ _StringParameterListener__WEBPACK_IMPORTED_MODULE_5__.StringParameterListener),
+/* harmony export */   "SwitchParameterListener": () => (/* reexport safe */ _SwitchParameterListener__WEBPACK_IMPORTED_MODULE_6__.SwitchParameterListener)
+/* harmony export */ });
 /* harmony import */ var _EditorParameterManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditorParameterManager */ "./src/ParameterListeners/EditorParameterManager.ts");
 /* harmony import */ var _IEditorParameterManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IEditorParameterManager */ "./src/ParameterListeners/IEditorParameterManager.ts");
 /* harmony import */ var _IParameterListener__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IParameterListener */ "./src/ParameterListeners/IParameterListener.ts");
@@ -548,6 +564,14 @@ var __webpack_exports__ = {};
   !*** ./src/index.ts ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BasePluginEditorChannel": () => (/* reexport safe */ _BasePluginEditorChannel__WEBPACK_IMPORTED_MODULE_0__.BasePluginEditorChannel),
+/* harmony export */   "EditorParameterManager": () => (/* reexport safe */ _ParameterListeners__WEBPACK_IMPORTED_MODULE_1__.EditorParameterManager),
+/* harmony export */   "ListParameterListener": () => (/* reexport safe */ _ParameterListeners__WEBPACK_IMPORTED_MODULE_1__.ListParameterListener),
+/* harmony export */   "NumberParameterListener": () => (/* reexport safe */ _ParameterListeners__WEBPACK_IMPORTED_MODULE_1__.NumberParameterListener),
+/* harmony export */   "StringParameterListener": () => (/* reexport safe */ _ParameterListeners__WEBPACK_IMPORTED_MODULE_1__.StringParameterListener),
+/* harmony export */   "SwitchParameterListener": () => (/* reexport safe */ _ParameterListeners__WEBPACK_IMPORTED_MODULE_1__.SwitchParameterListener)
+/* harmony export */ });
 /* harmony import */ var _BasePluginEditorChannel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BasePluginEditorChannel */ "./src/BasePluginEditorChannel.ts");
 /* harmony import */ var _ParameterListeners__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ParameterListeners */ "./src/ParameterListeners/index.ts");
 

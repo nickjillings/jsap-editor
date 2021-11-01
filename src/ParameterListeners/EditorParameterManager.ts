@@ -1,13 +1,13 @@
 /*jshint esversion: 6 */
-import NumberParameterListener from "./NumberParameterListener";
-import ListParameterListener from "./ListParameterListener";
-import StringParameterListener from "./StringParameterListener";
-import SwitchParameterListener from "./SwitchParameterListener";
-import BasePluginEditorChannel from "../BasePluginEditorChannel";
+import {NumberParameterListener} from "./NumberParameterListener";
+import {ListParameterListener} from "./ListParameterListener";
+import {StringParameterListener} from "./StringParameterListener";
+import {SwitchParameterListener} from "./SwitchParameterListener";
+import { BasePluginEditorChannel } from "../BasePluginEditorChannel";
 import { IEditorParameterManager } from "./IEditorParameterManager";
 import { IParameterListener } from "./IParameterListener";
 
-class EditorParameterManager implements IEditorParameterManager {
+export class EditorParameterManager implements IEditorParameterManager {
     public parameters: IParameterListener<any>[] = [];
     constructor(public readonly channel: BasePluginEditorChannel) {
 
@@ -34,5 +34,3 @@ class EditorParameterManager implements IEditorParameterManager {
     }
 
 }
-
-export default EditorParameterManager;

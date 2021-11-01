@@ -1,7 +1,7 @@
 import { IBasePluginEditorChannel } from "../IBasePluginEditorChannel";
 import { IEditorParameterManager } from "./IEditorParameterManager";
 import { IParameterListener } from "./IParameterListener";
-declare class NumberParameterListener implements IParameterListener<number> {
+export declare class NumberParameterListener implements IParameterListener<number> {
     readonly owner: IEditorParameterManager;
     readonly channel: IBasePluginEditorChannel;
     readonly parameterName: string;
@@ -15,4 +15,3 @@ declare class NumberParameterListener implements IParameterListener<number> {
     get value(): number;
     set value(v: number);
 }
-export default NumberParameterListener;

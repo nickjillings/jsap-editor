@@ -5,7 +5,7 @@ import { IBasePluginEditorChannel } from "../IBasePluginEditorChannel";
 import { IEditorParameterManager } from "./IEditorParameterManager";
 import { IParameterListener } from "./IParameterListener";
 
-class ListParameterListener<T> implements IParameterListener<T> {
+export class ListParameterListener<T> implements IParameterListener<T> {
     private _value = this.defaultValue;
     constructor(
         public readonly owner: IEditorParameterManager,
@@ -33,5 +33,3 @@ class ListParameterListener<T> implements IParameterListener<T> {
         }
     }
 }
-
-export default ListParameterListener;

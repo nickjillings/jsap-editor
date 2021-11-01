@@ -4,7 +4,7 @@ import { IBasePluginEditorChannel } from "../IBasePluginEditorChannel";
 import { IEditorParameterManager } from "./IEditorParameterManager";
 import { IParameterListener } from "./IParameterListener";
 
-class SwitchParameterListener implements IParameterListener<number> {
+export class SwitchParameterListener implements IParameterListener<number> {
     private _value = this.defaultValue;
     constructor (
         public readonly owner: IEditorParameterManager,
@@ -50,5 +50,3 @@ class SwitchParameterListener implements IParameterListener<number> {
         }
     }
 }
-
-export default SwitchParameterListener;

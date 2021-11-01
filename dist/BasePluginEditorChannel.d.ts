@@ -1,4 +1,4 @@
-import EditorParameterManager from "./ParameterListeners/EditorParameterManager";
+import { EditorParameterManager } from "./ParameterListeners/EditorParameterManager";
 import { IBasePluginEditorChannel, IBasePluginEditorChannelCallback, IParametersListenerCallback } from "./IBasePluginEditorChannel";
 import { IBasePlugin, StateLevel } from "jsap";
 declare global {
@@ -6,7 +6,8 @@ declare global {
         pluginInstance: IBasePlugin;
     }
 }
-export default class BasePluginEditorChannel implements IBasePluginEditorChannel {
+export * from './IBasePluginEditorChannel';
+export declare class BasePluginEditorChannel implements IBasePluginEditorChannel {
     private hostWindow;
     private unique_id;
     private onparameterListeners;

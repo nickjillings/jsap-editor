@@ -7,7 +7,7 @@
     between the plugin processor (BasePlugin) and the GUI on top.
 */
 
-import EditorParameterManager from "./ParameterListeners/EditorParameterManager";
+import {EditorParameterManager} from "./ParameterListeners/EditorParameterManager";
 import { IBasePluginEditorChannel, IParameterListenerHandler, IBasePluginEditorChannelCallback, IParametersListenerCallback, IStateListenerHandler } from "./IBasePluginEditorChannel";
 import { PluginParameterUpdateMessage, PluginStateUpdateMessage, IBasePlugin, StateLevel } from "jsap";
 
@@ -16,9 +16,10 @@ declare global {
         pluginInstance: IBasePlugin;
     }
 }
-  
 
-export default class BasePluginEditorChannel implements IBasePluginEditorChannel {
+export * from './IBasePluginEditorChannel';
+
+export class BasePluginEditorChannel implements IBasePluginEditorChannel {
     private hostWindow: Window
     private unique_id = (function (len) {
         function dec2hex (dec) {
