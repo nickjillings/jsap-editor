@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "js-xtract": "^1.2.0",
-    "jsap": "file:../JSAP",
+    "jsap": "^2.0.0",
     "rxjs": "^7.4.0"
   }
 }
